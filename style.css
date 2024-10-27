@@ -14,16 +14,16 @@ body {
 h1 {
     font-style: italic;
     border-color: blueviolet;
-    background-color: blue;
+    background-color: rgb(87, 0, 0);
     border-radius: 5px;
     padding: 10px;
     margin: 15px;
     text-align: center;
 }
 
-.games {
+.ip {
    border-color: blue;
-    background-color: aqua;
+    background-color: rgb(87, 0, 0);
     border-radius: 5px;
     padding: 5px;
     margin: 5px;
