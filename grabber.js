@@ -13,19 +13,33 @@ async function fetchIPinfo() {
     const org = json.org
     const postal = json.postal
     const timezone = json.timezone
-    element.innerHTML += "<p>" + ip + "<br>" + city + "<br>" + region + "<br>" + country + "<br>" + org + "<br>" + postal + "<br>" + timezone + "</p>"
+
+    
+
+    const IPData = `IP: ${ip}, City: ${city}, Region: ${region}, Country: ${country}, Organization: ${org}, Postal: ${postal}, Timezone: ${timezone}`;
+    element.innerHTML += "<p>" + IPData.replace(/, /g, "<br>") + "</p>";
+
+    return IPData; 
   } 
 
-  async function SendIPinfo() {
+  async function SendIPinfo(IPData) {
     const url = "https://kool.krister.ee/chat/IP"
     const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(ip, city, region, country, org, postal, timezone)
+      body: JSON.stringify({ IPData })
     })
     
   }
 
+  async function main() {
+    const ipData = await fetchIPinfo();
+  
+    if (ipData) {
+      await SendIPinfo(ipData);
+    }
+  }
+  
 main()
