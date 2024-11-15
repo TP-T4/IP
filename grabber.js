@@ -16,4 +16,13 @@ async function download() {
     element.innerHTML += "<p>" + ip + "<br>" + city + "<br>" + region + "<br>" + country + "<br>" + org + "<br>" + postal + "<br>" + timezone + "</p>"
   } 
 
+const url = "https://kool.krister.ee/chat/IP" 
+fetch(url, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(message)
+});
+
 download()
